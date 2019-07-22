@@ -1,0 +1,31 @@
+{
+  "name": "starter pack",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "del": "^3.0.0"
+  },
+  "devDependencies": {
+    "browser-sync": "^2.26.3",
+    "gulp": "^4.0.0",
+    "gulp-autoprefixer": "^6.0.0",
+    "gulp-clean-css": "^4.0.0",
+    "gulp-concat": "^2.6.1",
+    "gulp-htmlmin": "^5.0.1",
+    "gulp-imagemin": "^5.0.3",
+    "gulp-sass": "^4.0.2",
+    "gulp-terser": "^1.2.0",
+    "gulp-uglify": "^3.0.1",
+    "imagemin-jpeg-recompress": "^6.0.0",
+    "jpeg-recompress-bin": "^4.0.0",
+    "node-normalize-scss": "^8.0.0"
+  },
+  "scripts": {
+    "start": "gulp dev",
+    "build": "gulp build"
+  },
+  "keywords": [],
+  "author": "Kacubo Ales",
+  "license": "ISC"
+}
