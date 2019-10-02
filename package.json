@@ -1,6 +1,6 @@
 {
-  "name": "starter pack",
-  "version": "1.0.0",
+  "name": "starterPack",
+  "version": "1.0.1",
   "description": "",
   "main": "index.js",
   "dependencies": {
@@ -19,7 +19,7 @@
     "gulp-uglify": "^3.0.1",
     "imagemin-jpeg-recompress": "^6.0.0",
     "jpeg-recompress-bin": "^4.0.0",
-    "node-normalize-scss": "^8.0.0"
+    "node-normalize-scss": "^8.0.1"
   },
   "scripts": {
     "start": "gulp dev",

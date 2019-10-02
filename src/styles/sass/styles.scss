@@ -1,0 +1,12 @@
+@import "normalize";
+
+@import "./base/variables.scss";
+@import "./base/fonts.scss";
+@import "./base/global.scss";
+@import "./base/buttons.scss";
+
+
+@import "./layouts/header.scss";
+@import "./layouts/footer.scss";
+@import "./layouts/modal.scss";
+

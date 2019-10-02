@@ -1,4 +1,3 @@
-//Подключаем модули галпа
 const gulp = require('gulp'),
       sass = require('gulp-sass'),
       concat = require('gulp-concat'),
@@ -12,31 +11,29 @@ const gulp = require('gulp'),
       browserSync = require('browser-sync').create();
 
 const sassStylesFiles = [
-   './src/assets/sass/styles.scss'
+   './src/styles/sass/styles.scss'
 ];
 
 const cssStylesFiles = [
-   './src/assets/css/**/*.css'
+   './src/styles/css/**/*.css'
 ];
 
 const jsFiles = [
-   './src/assets/js/*.js',
-   './src/index.js'
+   './src/js/*.js',
+   './src/libs/*.js'
 ];
 
 const imgFiles = [
-  './src/assets/img/**/*.png',
-  './src/assets/img/**/*.jpg',
-  './src/assets/img/**/*.gif',
-  './src/assets/img/**/*.svg'
+  './src/img/**/*.png',
+  './src/img/**/*.jpg',
+  './src/img/**/*.gif',
+  './src/img/**/*.svg'
 ];
-
-//Таск на стили CSS
 
 function tocss(){
    return gulp.src(sassStylesFiles)
    .pipe(sass({
-     includePaths: require('node-normalize-scss').includePaths
+      includePaths: require('node-normalize-scss').includePaths
    }))
    .pipe(autoprefixer({
       browserslistrc: ['last 2 versions'],
@@ -45,7 +42,7 @@ function tocss(){
    .pipe(cleanCSS({
       level: 2
    }))
-   .pipe(gulp.dest('./dist'))
+   .pipe(gulp.dest('./build'))
    .pipe(browserSync.stream());
 }
    
@@ -54,7 +51,7 @@ function scripts() {
    return gulp.src(jsFiles)
    .pipe(concat('index.js'))
    .pipe(terser())
-   .pipe(gulp.dest('./dist'))
+   .pipe(gulp.dest('./build'))
    .pipe(browserSync.stream());
 }
 
@@ -73,33 +70,32 @@ function minimg() {
           imagemin.svgo(),
           ]),
       )
-   .pipe(gulp.dest('./dist/img'))
+   .pipe(gulp.dest('./build/img'))
 }
 
 function minhtml() {
   return gulp.src('./src/*.html')
  .pipe(htmlmin({collapseWhitespace: true}))
-    .pipe(gulp.dest('./dist'))
-    .pipe(gulp.dest('templates'));
+    .pipe(gulp.dest('./build'));
 }
 
 function fonts() {
-  return gulp.src('./src/assets/fonts/**/*')
-    .pipe(gulp.dest('./dist/fonts'));
+  return gulp.src('./src/fonts/**/*')
+    .pipe(gulp.dest('./build/fonts'));
 }
 
 function clean() {
-   return del(['dist', 'templates'])
+   return del(['build'])
 }
 
 function watch() {
   
-  gulp.watch('./src/assets/sass/**/*.scss').on('change', gulp.series(tocss, browserSync.reload));
-  gulp.watch(['./src/assets/js/**/*.js', './src/index.js'], scripts, browserSync.reload);
+  gulp.watch('./src/sass/**/*.scss').on('change', gulp.series(tocss, browserSync.reload));
+  gulp.watch('./src/js/**/*.js').on('change', gulp.series(scripts, browserSync.reload));
   gulp.watch('./src/*.html').on('change', gulp.series(minhtml, browserSync.reload));
 }
 
-exports.tocsss = tocss;
+exports.tocss = tocss;
 exports.scripts = scripts;
 exports.delcss = clean;
 exports.images = minimg;
