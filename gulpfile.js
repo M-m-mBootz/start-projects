@@ -1,4 +1,5 @@
 const gulp = require('gulp'),
+      pug = require('gulp-pug'),
       sass = require('gulp-sass'),
       concat = require('gulp-concat'),
       autoprefixer = require('gulp-autoprefixer'),
@@ -44,8 +45,7 @@ function tocss(){
    }))
    .pipe(gulp.dest('./build'))
    .pipe(browserSync.stream());
-}
-   
+} 
 
 function scripts() {
    return gulp.src(jsFiles)
@@ -70,7 +70,14 @@ function minimg() {
           imagemin.svgo(),
           ]),
       )
-   .pipe(gulp.dest('./build/img'))
+   .pipe(gulp.dest('./build/img'));
+}
+
+function tohtml() {
+   return gulp.src('./src/pug/*.pug')
+  .pipe(pug({pretty:true}))
+  .pipe(gulp.dest('./src'));
+
 }
 
 function minhtml() {
@@ -85,13 +92,13 @@ function fonts() {
 }
 
 function clean() {
-   return del(['build'])
+   return del(['build']);
 }
 
 function watch() {
-  
   gulp.watch('./src/sass/**/*.scss').on('change', gulp.series(tocss, browserSync.reload));
   gulp.watch('./src/js/**/*.js').on('change', gulp.series(scripts, browserSync.reload));
+  gulp.watch('./src/pug/**/*.pug').on('change', gulp.series(tohtml, browserSync.reload));
   gulp.watch('./src/*.html').on('change', gulp.series(minhtml, browserSync.reload));
 }
 
@@ -99,8 +106,9 @@ exports.tocss = tocss;
 exports.scripts = scripts;
 exports.delcss = clean;
 exports.images = minimg;
+exports.tohtml = tohtml;
 exports.html = minhtml;
 exports.fonts = fonts;
 exports.watch = watch;
-exports.build = gulp.series(clean, gulp.parallel(fonts, minhtml, tocss, scripts, minimg));
+exports.build = gulp.series(clean, gulp.parallel(fonts, tohtml, minhtml, tocss, scripts, minimg));
 exports.dev = gulp.series(exports.build, watch);
