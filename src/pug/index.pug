@@ -1,15 +1,19 @@
-//- index.pug
+block variables
+//- переменные в HEAD //
+- var pageTitle = 'Document'
+- var cssFile = 'styles.css'
+//- переменные в HEADER //
+- var standart = 'ON'
+- var modern = ''
+- var modif = ''
 doctype html
 |
 |
-<html lang="ru">
+html(lang="ru")
     include includes/main/head.pug
     body
         include includes/main/header.pug
         include includes/main/main.pug
         include includes/main/footer.pug
-
-    include includes/main/modal.pug
-|
-|
-</html>
+        include includes/main/modal.pug
+        script(src="index.js" type="text/javascript")
