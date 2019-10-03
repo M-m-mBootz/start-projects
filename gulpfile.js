@@ -96,9 +96,8 @@ function clean() {
 }
 
 function watch() {
-  gulp.watch('./src/sass/**/*.scss').on('change', gulp.series(tocss, browserSync.reload));
+  gulp.watch('./src/styles/sass/**/*.scss').on('change', gulp.series(tocss, browserSync.reload));
   gulp.watch('./src/js/**/*.js').on('change', gulp.series(scripts, browserSync.reload));
-  gulp.watch('./src/pug/**/*.pug').on('change', gulp.series(tohtml, browserSync.reload));
   gulp.watch('./src/*.html').on('change', gulp.series(minhtml, browserSync.reload));
 }
 
@@ -110,5 +109,5 @@ exports.tohtml = tohtml;
 exports.html = minhtml;
 exports.fonts = fonts;
 exports.watch = watch;
-exports.build = gulp.series(clean, gulp.parallel(fonts, tohtml, minhtml, tocss, scripts, minimg));
+exports.build = gulp.series(clean, gulp.parallel(fonts, minhtml, tocss, scripts, minimg));
 exports.dev = gulp.series(exports.build, watch);
