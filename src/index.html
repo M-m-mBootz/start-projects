@@ -6,62 +6,50 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div class="header">
-        <div class="wrapper">
-            <h1>My Website</h1>
-        </div>
-    </div>
-    <div class="menu">
-        <div class="menu__wrapper wrapper">
+    <header class="header">
+        <nav class="header__menu menu">
             <ul class="menu__list">
-                <li class="menu__list-item"><a class="menu__list-link" href="#">Главная</a></li>
-                <li class="menu__list-item"><a class="menu__list-link" href="#">Продукты</a></li>
-                <li class="menu__list-item"><a class="menu__list-link" href="#">Услуги</a></li>
-                <li class="menu__list-item"><a class="menu__list-link" href="#">Контакты</a></li>
+                <li class="menu__list-item"><a href="#" class="menu__list-item-link">Информация</a></li>
+                <li class="menu__list-item"><a href="#" class="menu__list-item-link">Фото и Видео</a></li>
+                <li class="menu__list-item"><a href="#" class="menu__list-item-link">
+                    <img class="header__menu-logo" src="#" alt="логотип сайта"></a></li>
+                <li class="menu__list-item"><a href="#" class="menu__list-item-link">Карта штата</a></li>
+                <li class="menu__list-item"><a href="#" class="menu__list-item-link">Гостиницы</a></li>
             </ul>
-        </div>
-    </div>
-    <div class="content">
-        <div class="wrapper">
-            <img src="img/misty-forrest.jpg" alt="misty-forrest">
-            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. 
-                Laborum consequuntur rerum in animi magnam libero, 
-                vero tempore modi rem eligendi unde eaque nulla aut? 
-                Quod quibusdam aliquid sit tenetur laboriosam?</p>
-            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. 
-                Laborum consequuntur rerum in animi magnam libero, 
-                vero tempore modi rem eligendi unde eaque nulla aut? 
-                Quod quibusdam aliquid sit tenetur laboriosam?</p>
-            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. 
-                Laborum consequuntur rerum in animi magnam libero, 
-                vero tempore modi rem eligendi unde eaque nulla aut? 
-                Quod quibusdam aliquid sit tenetur laboriosam?</p>
-            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. 
-                Laborum consequuntur rerum in animi magnam libero, 
-                vero tempore modi rem eligendi unde eaque nulla aut? 
-                Quod quibusdam aliquid sit tenetur laboriosam?</p>
-            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. 
-                Laborum consequuntur rerum in animi magnam libero, 
-                vero tempore modi rem eligendi unde eaque nulla aut? 
-                Quod quibusdam aliquid sit tenetur laboriosam?</p> 
-            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. 
-                Laborum consequuntur rerum in animi magnam libero, 
-                vero tempore modi rem eligendi unde eaque nulla aut? 
-                Quod quibusdam aliquid sit tenetur laboriosam?</p>
-            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. 
-                Laborum consequuntur rerum in animi magnam libero, 
-                vero tempore modi rem eligendi unde eaque nulla aut? 
-                Quod quibusdam aliquid sit tenetur laboriosam?</p>
-            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. 
-                Laborum consequuntur rerum in animi magnam libero, 
-                vero tempore modi rem eligendi unde eaque nulla aut? 
-                Quod quibusdam aliquid sit tenetur laboriosam?</p>  
-        </div>
-    </div>
-    <div class="footer">
-        <div class="wrapper">
-            <p>Footer</p>
-        </div>
-    </div>
+        </nav>
+    </header>
+    <main class="main">
+        <section class="firstScreen section">
+            <div class="firstScreen__wrapper section__wrapper">
+                <p class="firstScreen__subtitle"><Span class="firstScreen__subtitle--big">Welcome</Span>to the gorgeous</p>
+                <h1 class="firstScreen__title">Sedona</h1>
+                <p class="firstSreen__slogan">"Because the Grand Canyon sucks!"</p>
+            </div>
+        </section>
+        <section class="section section__attractions">
+            <h2 class="section__title--small section__title">Седона - небольшой городок в Аризоне, заслуживщий большего!</h2>
+            <p class="section__description">Рассмотрим 5 причин, по которым седона круче, чем гранд каньон!</p>
+            <ul class="attractions__list">
+                <li class="attractions__list-item attraction__list-item--pic">
+                    <div class="item__wrapper">
+                        <div class="item__wrapper-backgroud"><img src="#" alt="очень креативная картинка" class="item__img"></div>
+                        <div class="item__wrapper-text item__wrapper-text--white">
+                            <h3 class="item__title"></h3>
+                            <p class="item__text"><span class="item__number"></span></p>
+                        </div>
+                    </div>
+                </li>
+                <li class="attractions__list-item attraction__list-item--pic">
+                    <div class="item__wrapper">
+                        <div class="item__wrapper-backgroud"><img src="#" alt="очень креативная картинка" class="item__img"></div>
+                        <div class="item__wrapper-text item__wrapper-text--white">
+                            <h3 class="item__title"></h3>
+                            <p class="item__text"><span class="item__number"></span></p>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </section>
+        </main>
 </body>
 </html>
